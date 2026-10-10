@@ -1,0 +1,30 @@
+{
+  "name": "context-meter",
+  "version": "0.1.0",
+  "description": "Shows the context window's fill after every turn and, past a threshold, says it is time to write a hand-off document and start a new session.",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "warnPercent": {
+      "type": "number",
+      "title": "Warn at (%)",
+      "description": "Context fill at which the status line and the band say it is hand-off time.",
+      "default": 70,
+      "min": 1,
+      "max": 100
+    },
+    "urgentPercent": {
+      "type": "number",
+      "title": "Urgent at (%)",
+      "description": "Context fill at which the band turns red.",
+      "default": 85,
+      "min": 1,
+      "max": 100
+    },
+    "handoffPrompt": {
+      "type": "string",
+      "title": "Hand-off prompt",
+      "description": "The prompt the Draft hand-off button submits.",
+      "default": "Context is getting large. Write a hand-off document for this session following the project's hand-off conventions, so a new session can continue from it."
+    }
+  }
+}
