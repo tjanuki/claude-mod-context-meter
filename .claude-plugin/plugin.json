@@ -4,6 +4,14 @@
   "description": "Shows the context window's fill after every turn and, past a threshold, says it is time to write a hand-off document and start a new session.",
   "types": "./types/index.d.ts",
   "userConfig": {
+    "showPercent": {
+      "type": "number",
+      "title": "Show from (%)",
+      "description": "Context fill from which the status line shows the percent; below it the status line stays empty.",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
     "warnPercent": {
       "type": "number",
       "title": "Warn at (%)",

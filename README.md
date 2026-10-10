@@ -19,7 +19,7 @@ Set in `/config`, or in settings under `pluginConfigs["context-meter"].options`:
 
 | Key             | Default | Meaning                                           |
 | --------------- | ------- | ------------------------------------------------- |
-| `warnPercent`   | `70`    | Fill at which the status line and band warn       |
+| `showPercent` (default 50, the status line stays empty below it), `warnPercent`   | `70`    | Fill at which the status line and band warn       |
 | `urgentPercent` | `85`    | Fill at which the band line turns red             |
 | `handoffPrompt` | (below) | The prompt the `Draft hand-off` button submits    |
 

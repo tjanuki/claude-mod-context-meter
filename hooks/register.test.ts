@@ -58,12 +58,13 @@ const measure = async ($: Engine, percent: number): Promise<void> => {
   })
 }
 
-test('a measure writes the percent to the status line', async ($, on) => {
+test('a measure writes the percent to the status line only from the show threshold', async ($, on) => {
   const recorded = await startSession($, on)
-  await measure($, 42)
+  await measure($, 5)
+  await measure($, 55)
   await measure($, 74)
 
-  expect(recorded.statusTexts).toEqual(['ctx 42%', '⚠ ctx 74% · hand-off time'])
+  expect(recorded.statusTexts).toEqual([undefined, 'ctx 55%', '⚠ ctx 74% · hand-off time'])
 })
 
 test('the band draws nothing below the warn threshold', async ($, on) => {

@@ -15,6 +15,7 @@ const handoffLine = (percent: number): string =>
 
 export const register: Register = (on, options) => {
   // The manifest's userConfig declares each field with a default, so a load always fills them in.
+  const showPercent = Number(options.showPercent)
   const warnPercent = Number(options.warnPercent)
   const urgentPercent = Number(options.urgentPercent)
   const handoffPrompt = String(options.handoffPrompt)
@@ -46,7 +47,7 @@ export const register: Register = (on, options) => {
       hasUrgentToastFired: currentMeter.hasUrgentToastFired || isUrgent,
     }))
 
-    $.ui.status(isWarn ? `⚠ ctx ${percent}% · hand-off time` : `ctx ${percent}%`)
+    $.ui.status(percent < showPercent ? undefined : isWarn ? `⚠ ctx ${percent}% · hand-off time` : `ctx ${percent}%`)
     if (shouldToastUrgent || shouldToastWarn) {
       $.ui.toast(handoffLine(percent))
     }
